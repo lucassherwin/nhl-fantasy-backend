@@ -16,35 +16,38 @@ ActiveRecord::Schema.define(version: 2020_06_04_155145) do
   enable_extension "plpgsql"
 
   create_table "add_user_to_leagues", force: :cascade do |t|
-    t.integer "userID"
-    t.integer "leagueID"
+    t.integer "user_id"
+    t.integer "league_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "leagues", force: :cascade do |t|
-    t.integer "userID"
+    t.integer "user_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer "teamID"
-    t.integer "playerID"
-    t.integer "goals"
-    t.integer "assists"
-    t.integer "ppg"
-    t.integer "toi"
-    t.integer "gwg"
-    t.string "pm"
+    t.integer "team_id" #done
+    t.integer "playerID" #done
+    t.string "name" #done
+    t.integer "goals" #done
+    t.integer "assists" #done
+    t.integer "ppg" #done
+    t.string "toi" #done
+    t.integer "gwg" #done
+    t.integer "pim" #done
+    t.integer "points" #done
+    t.integer "hits" #done
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer "leagueID"
-    t.integer "userID"
+    t.integer "league_id"
+    t.integer "user_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
