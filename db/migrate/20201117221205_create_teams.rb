@@ -1,11 +1,9 @@
 class CreateTeams < ActiveRecord::Migration[5.2]
   def change
     create_table :teams do |t|
-      t.integer :league_id
-      t.integer :user_id
+      t.integer :userID
       t.string :name
-
-      t.timestamps
+      t.integer :userID
     end
   end
 end

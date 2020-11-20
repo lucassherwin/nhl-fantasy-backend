@@ -9,21 +9,20 @@ require 'json'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-League.destroy_all
+# League.destroy_all
 Team.destroy_all
 Player.destroy_all
-AddUserToLeague.destroy_all
+# AddUserToLeague.destroy_all
 
-user1 = User.create(name: 'user1', rank: 'gold')
-user2 = User.create(name: 'user2', rank: 'silver')
+user = User.create(username: 'user1')
 
-league1 = League.create(user: user1, name: 'test league')
+# league1 = League.create(user: user1, name: 'test league')
 
-team1 = Team.create(league: league1, user: user1, name: 'Terriers')
+# team1 = Team.create(league: league1, user: user1, name: 'Terriers')
 
 # player1 = Player.create(team: team1, playerID: 123)
 
-addUserToLeague1 = AddUserToLeague.create(user: user1, league: league1)
+# addUserToLeague1 = AddUserToLeague.create(user: user1, league: league1)
 
 unparsed_team_data = RestClient.get('https://statsapi.web.nhl.com/api/v1/teams')
 parsed_team_data = JSON.parse(unparsed_team_data)
@@ -72,8 +71,10 @@ teamArr.each do |id|
             playerHits = parsed_player_data["stats"][0]["splits"][0]["stat"]["hits"]
         end
     
-        Player.create(name: playerName, team: team1, playerID: playerID, goals: playerGoals, assists: playerAssts, 
-        ppg: playerPPG, toi: playerTOI, gwg: playerGWG, pim: playerPIM, points: playerPoints, hits: playerHits)
+        # Player.create(name: playerName, team: team1, playerID: playerID, goals: playerGoals, assists: playerAssts, 
+        # ppg: playerPPG, toi: playerTOI, gwg: playerGWG, pim: playerPIM, points: playerPoints, hits: playerHits)
+        Player.create(name: playerName, goals: playerGoals, assists: playerAssts, ppg: playerPPG, toi: playerTOI, 
+            gwg: playerGWG, pim: playerPIM, points: playerPoints, hits: playerHits)
         puts "Name: #{playerName} ID: #{playerID}  Goals: #{playerGoals}"
     end    
 end
