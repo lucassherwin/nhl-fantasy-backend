@@ -9,20 +9,8 @@ require 'json'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-# League.destroy_all
 Team.destroy_all
 Player.destroy_all
-# AddUserToLeague.destroy_all
-
-user = User.create(username: 'user1')
-
-# league1 = League.create(user: user1, name: 'test league')
-
-# team1 = Team.create(league: league1, user: user1, name: 'Terriers')
-
-# player1 = Player.create(team: team1, playerID: 123)
-
-# addUserToLeague1 = AddUserToLeague.create(user: user1, league: league1)
 
 unparsed_team_data = RestClient.get('https://statsapi.web.nhl.com/api/v1/teams')
 parsed_team_data = JSON.parse(unparsed_team_data)
