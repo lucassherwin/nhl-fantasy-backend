@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    has_one :team
+    has_many :teams
 end
