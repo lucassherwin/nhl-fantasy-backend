@@ -13,7 +13,12 @@ class UsersController < ApplicationController
         # else
         #     render json: {message: 'This user is not authenticated'}
         # end
-        render json: user
+        if user
+            render json: user
+        else
+            render json: {message: 'Could not find user'}
+        end
+        # render json: user
     end
 
     def create
