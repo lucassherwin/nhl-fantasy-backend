@@ -1,8 +1,8 @@
 class CreatePlayerTeams < ActiveRecord::Migration[5.2]
   def change
     create_table :player_teams do |t|
-      t.integer :teamID
-      t.integer :playerID
+      t.integer :team_id
+      t.integer :player_id
     end
   end
 end
