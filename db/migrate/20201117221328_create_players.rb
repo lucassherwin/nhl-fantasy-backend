@@ -10,6 +10,9 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.integer :pim
       t.integer :points
       t.integer :hits
+      t.string :position
+      t.string :current_team
+      t.string :number # jersey number
     end
   end
 end
