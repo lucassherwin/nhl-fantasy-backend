@@ -77,3 +77,6 @@ teamArr.each do |id|
         puts "Name: #{playerName} ID: #{playerID}  Goals: #{playerGoals}"
     end    
 end
+
+# playerID: playerID,
+# team: team1,
