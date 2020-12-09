@@ -10,54 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_155145) do
+ActiveRecord::Schema.define(version: 2020_11_17_221402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_user_to_leagues", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "league_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "leagues", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "player_teams", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "player_id"
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer "team_id" #done
-    t.integer "playerID" #done
-    t.string "name" #done
-    t.integer "goals" #done
-    t.integer "assists" #done
-    t.integer "ppg" #done
-    t.string "toi" #done
-    t.integer "gwg" #done
-    t.integer "pim" #done
-    t.integer "points" #done
-    t.integer "hits" #done
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "goals"
+    t.integer "assists"
+    t.integer "ppg"
+    t.string "toi"
+    t.integer "gwg"
+    t.integer "pim"
+    t.integer "points"
+    t.integer "hits"
+    t.string "position"
+    t.string "current_team"
+    t.string "number"
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer "league_id"
     t.integer "user_id"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "location"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "firstName"
+    t.string "lastName"
   end
 
 end

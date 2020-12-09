@@ -1,8 +1,6 @@
 class CreatePlayers < ActiveRecord::Migration[5.2]
   def change
     create_table :players do |t|
-      t.integer :team_id
-      t.integer :playerID
       t.string :name
       t.integer :goals
       t.integer :assists
@@ -12,8 +10,9 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.integer :pim
       t.integer :points
       t.integer :hits
-
-      t.timestamps
+      t.string :position
+      t.string :current_team
+      t.string :number # jersey number
     end
   end
 end
