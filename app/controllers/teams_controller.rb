@@ -8,7 +8,16 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
+    # byebug
+    @team = Team.find(params[:id])
     render json: @team
+  end
+
+  # gets the teams players and renders them
+  def players
+    team = Team.find(params[:id])
+    players = team.players
+    render json: players
   end
 
   # POST /teams

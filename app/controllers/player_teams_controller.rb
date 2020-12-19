@@ -13,6 +13,7 @@ class PlayerTeamsController < ApplicationController
 
     # POST /player_team
     def create
+        byebug
         player_team = PlayerTeam.create(player_team_params)
         player_team.save
         render json: player_team
@@ -31,6 +32,6 @@ class PlayerTeamsController < ApplicationController
     private
     
     def player_team_params
-        params.require(:player_team).permit(:player_id, :team_id)
+        params.require(:player_team).permit(:team_id, :player_id)
     end
 end

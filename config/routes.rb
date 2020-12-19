@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/teams', to: 'teams#create'
   post '/player_team', to: 'player_teams#create'
+  # pass in id of team to get players
+  get '/teams/:id/players', to: 'teams#players'
 
 
   # get '/users', to: 'users#show'
