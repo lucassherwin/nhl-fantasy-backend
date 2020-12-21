@@ -2,8 +2,15 @@ class TeamsController < ApplicationController
   # GET /teams
   def index
     @teams = Team.all
-
-    render json: @teams
+    teams_arr = []
+    @teams.each do |team|
+      players = []
+      team.players.each do |player|
+        players << player
+      end
+      teams_arr << {team: team, players: players}
+    end
+    render json: teams_arr
   end
 
   # GET /teams/1
@@ -14,14 +21,15 @@ class TeamsController < ApplicationController
   end
 
   # gets the teams players and renders them
-  def players
-    team = Team.find(params[:id])
-    players = team.players
-    render json: players
-  end
+  # def players
+  #   team = Team.find(params[:id])
+  #   players = team.players
+  #   render json: players
+  # end
 
   # POST /teams
   def create
+    # byebug
     team = Team.create!(team_params)
     team.save
     render json: team

@@ -13,7 +13,7 @@ class PlayerTeamsController < ApplicationController
 
     # POST /player_team
     def create
-        byebug
+        # byebug
         player_team = PlayerTeam.create(player_team_params)
         player_team.save
         render json: player_team
