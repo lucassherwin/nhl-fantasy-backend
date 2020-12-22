@@ -5,20 +5,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        # user = User.find_by(id: params[:id])
-        # render json: user
         user = User.find_by(username: params[:username])
-        # if(user.password == params[:password])
-        #     render json: user
-        # else
-        #     render json: {message: 'This user is not authenticated'}
-        # end
         if user
             render json: user
         else
             render json: {message: 'Could not find user'}
         end
-        # render json: user
     end
 
     def create
